@@ -20,6 +20,11 @@ def blackjack():
         deal = input("Type 'y' to get another card, type 'n' to pass:")
         if deal == "y":
             add_card(1, player_cards, cards)
+            if sum(player_cards) > 21:
+                for card in player_cards:
+                    if card == 11:
+                        player_cards.remove(11)
+                        player_cards.append(1)
             print(f'your cards: {player_cards}, current score: {sum(player_cards)}')
             print(f"Computer's first card: {dealer_cards[0]}")
             if sum(player_cards) >= 21:
